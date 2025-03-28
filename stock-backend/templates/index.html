@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1 class="mb-4">Stock Information</h1>
+  <form method="POST" action="{{ url_for('index') }}" class="mb-4">
+    <div class="mb-3">
+      <label for="stockName" class="form-label">Enter Stock Name</label>
+      <input type="text" class="form-control" id="stockName" name="stock_name" placeholder="e.g., Jio, Apple, Tesla" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Stock Info</button>
+  </form>
+
+  {% if stock_data %}
+  <div class="card">
+    <div class="card-header">
+      {{ stock_data.name }} ({{ stock_data.ticker }})
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Price: {{ stock_data.price }} {{ stock_data.currency }}</h5>
+      <p class="card-text">Market State: {{ stock_data.market_state }}</p>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}
