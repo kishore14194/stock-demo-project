@@ -69,3 +69,9 @@ The CI/CD pipeline is designed with the following components:
 - Completed project architecture planning
 - Set up Terraform configuration in Terraform Cloud
 - Successfully provisioned infrastructure for Jenkins master, build node, and Ansible server
+### April 4, 2025
+- Verified the triggers from terraform cloud
+- Found an API to fetch the outputs of Jenkins master, build node, and Ansible servers dynamically
+- Partially configured ansible
+- How to automatically trigger ansible after terraform infra creation ?
+- How to store the .pem file to access EC2 instance from ansible ?
