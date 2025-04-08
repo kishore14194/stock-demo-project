@@ -80,3 +80,6 @@ The CI/CD pipeline is designed with the following components:
 - Resolved issue with installing jenkins plugins by creating an admin user
 - How to automatically trigger ansible after terraform infra creation ? - Use github actions. I created a webhook to trigger when the terraform infra is complete
 - Configured Jenkins Master and Build Node
+### April 8, 2025
+- Bottleneck - Terraform cloud doesn't support Authorisation so can't trigger Ansible machine from Github
+- Have to SSH to ansible machine manually
