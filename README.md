@@ -83,3 +83,4 @@ The CI/CD pipeline is designed with the following components:
 ### April 8, 2025
 - Bottleneck - Terraform cloud doesn't support Authorisation so can't trigger Ansible machine from Github
 - Have to SSH to ansible machine manually
+- Configured multibranch pipeline
