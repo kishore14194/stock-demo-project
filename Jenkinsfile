@@ -17,7 +17,6 @@ pipeline {
 
         stage('Test Docker Access') {
             steps {
-                sh '/usr/bin/docker --version'
                 sh 'whoami && docker ps'
             }
         }
