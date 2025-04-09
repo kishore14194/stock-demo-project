@@ -15,16 +15,24 @@ pipeline {
             }
         }
 
-        stage('Test Docker Access') {
-            steps {
-                sh 'bash -c "whoami && docker ps"'
-            }
-        }
+        // stage('Test Docker Access') {
+        //     steps {
+        //         sh 'bash -c "whoami && docker ps"'
+        //     }
+        // }
 
-        stage('Docker Build') {
+        // stage('Docker Build') {
+        //     steps {
+        //         script {
+        //             sh "docker build -t $DOCKER_IMAGE ."
+        //         }
+        //     }
+        // }
+
+        stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t $DOCKER_IMAGE ."
+                    docker.build($DOCKER_IMAGE)
                 }
             }
         }
