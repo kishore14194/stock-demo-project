@@ -85,3 +85,9 @@ The CI/CD pipeline is designed with the following components:
 - Have to SSH to ansible machine manually
 - Configured multibranch pipeline
 - Test pipeline trigger when a new change is pushed
+- Made the mistake of installing nexus in t2.micro. Wasted a day figuring it out why it is not working
+### April 9, 2025
+- Installed nexus, configured Jenkins multipipeline to build when a change is pushed to github
+- Configured Nexus Repo
+- Sometimes EC2 stops connecting - Why ?
+- 
