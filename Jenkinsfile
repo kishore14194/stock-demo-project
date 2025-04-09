@@ -29,14 +29,13 @@ pipeline {
         //     }
         // }
 
-         stage('Build Docker Image') {
+         stage('Debug Docker') {
             steps {
                 sh '''
-                    export PATH=$PATH:/usr/bin
-                    echo $PATH
-                    which docker
-                    docker --version
-                    docker build -t $DOCKER_IMAGE .
+                    echo "Current PATH: $PATH"
+                    echo "Whoami: $(whoami)"
+                    echo "Docker path: $(which docker)"
+                    /usr/bin/docker --version
                 '''
             }
         }
