@@ -17,7 +17,7 @@ pipeline {
 
         stage('Test Docker Access') {
             steps {
-                sh 'whoami && docker ps'
+                sh 'bash -c "whoami && docker ps"'
             }
         }
 
