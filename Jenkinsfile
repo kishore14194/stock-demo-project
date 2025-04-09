@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'build-node' }
 
+    tools {
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
+    }
+
     environment {
         DOCKER_IMAGE = "stock-backend"
         NEXUS_URL = "13.233.129.221:8083"
