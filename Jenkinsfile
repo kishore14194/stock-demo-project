@@ -32,6 +32,7 @@ pipeline {
          stage('Debug Docker') {
             steps {
                 sh '''
+                    sudo su - ubuntu
                     echo "Current PATH: $PATH"
                     echo "Whoami: $(whoami)"
                     echo "Docker path: $(which docker)"
