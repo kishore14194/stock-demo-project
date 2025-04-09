@@ -21,21 +21,21 @@ pipeline {
         //     }
         // }
 
-        // stage('Docker Build') {
-        //     steps {
-        //         script {
-        //             sh "docker build -t $DOCKER_IMAGE ."
-        //         }
-        //     }
-        // }
-
-        stage('Build Docker Image') {
+        stage('Docker Build') {
             steps {
                 script {
-                    docker.build($DOCKER_IMAGE)
+                    sh "docker build -t $DOCKER_IMAGE ."
                 }
             }
         }
+
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             docker.build($DOCKER_IMAGE)
+        //         }
+        //     }
+        // }
 
         stage('Tag & Push to Nexus') {
             steps {
