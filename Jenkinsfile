@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage('Test Docker Access') {
+            steps {
+                sh 'whoami && docker ps'
+            }
+        }
+
         stage('Docker Build') {
             steps {
                 script {
