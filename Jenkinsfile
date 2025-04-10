@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "stock-backend"
-        NEXUS_URL = "13.233.129.221:8083"
+        NEXUS_URL = "13.233.129.221:8081"
         NEXUS_REPO = "docker-hosted"
         IMAGE_TAG = "latest"
     }
