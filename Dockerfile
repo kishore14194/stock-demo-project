@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire project into the container
-COPY stock-backend .
+COPY .
 
 # Expose port 5000 (default for Flask)
 EXPOSE 5000
