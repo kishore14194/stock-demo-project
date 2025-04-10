@@ -43,18 +43,18 @@ The CI/CD pipeline is designed with the following components:
 - [x] Configure Ansible Server
 
 ### Phase 2: Configuration and Initial Pipeline Setup 
-- [ ] Configure Jenkins Master and Build Node using Ansible
-- [ ] Create initial Jenkins Pipeline Job
-- [ ] Develop Jenkinsfile with core stages
-- [ ] Implement Multi-branch Pipeline
-- [ ] Configure GitHub webhook integration
+- [x] Configure Jenkins Master and Build Node using Ansible
+- [x] Create initial Jenkins Pipeline Job
+- [x] Develop Jenkinsfile with core stages
+- [x] Implement Multi-branch Pipeline
+- [x] Configure GitHub webhook integration
 
 ### Phase 3: Integrating Quality Checks and Artifact Management
 - [ ] Set up SonarQube and Sonar Scanner
 - [ ] Add SonarQube Analysis to pipeline
-- [ ] Configure Nexus Repository Manager
-- [ ] Create application Dockerfile
-- [ ] Configure pipeline to publish Docker images to Nexus
+- [x] Configure Nexus Repository Manager
+- [x] Create application Dockerfile
+- [x] Configure pipeline to publish Docker images to Nexus
 
 ### Phase 4: Kubernetes Deployment and Monitoring
 - [ ] Provision Kubernetes Cluster using Terraform
