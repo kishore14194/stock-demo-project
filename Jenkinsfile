@@ -15,32 +15,13 @@ pipeline {
             }
         }
 
-        // stage('Test Docker Access') {
-        //     steps {
-        //         sh 'bash -c "whoami && docker ps"'
-        //     }
-        // }
-
-        // stage('Docker Build') {
-        //     steps {
-        //         script {
-        //             sh "docker build -t $DOCKER_IMAGE ."
-        //         }
-        //     }
-        // }
-
-         stage('Debug Docker') {
+        stage('Docker Build') {
             steps {
-                sh '''
-                    sudo su - ubuntu
-                    echo "Current PATH: $PATH"
-                    echo "Whoami: $(whoami)"
-                    echo "Docker path: $(which docker)"
-                    /usr/bin/docker --version
-                '''
+                script {
+                    sh "docker build -t $DOCKER_IMAGE ."
+                }
             }
         }
-
         
 
         stage('Tag & Push to Nexus') {
