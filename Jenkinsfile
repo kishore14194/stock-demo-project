@@ -3,7 +3,8 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "stock-backend"
-        NEXUS_URL = "13.233.129.221:8081"
+        NEXUS_HOST = "13.233.129.221"
+        NEXUS_PORT = "8083" // Port for Docker repo, not Nexus UI
         NEXUS_REPO = "docker-hosted"
         IMAGE_TAG = "latest"
     }
@@ -22,15 +23,14 @@ pipeline {
                 }
             }
         }
-        
 
         stage('Tag & Push to Nexus') {
             steps {
                 script {
                     sh """
-                        docker tag $DOCKER_IMAGE $NEXUS_URL/$NEXUS_REPO/$DOCKER_IMAGE:$IMAGE_TAG
-                        docker login $NEXUS_URL -u admin -p admin123
-                        docker push $NEXUS_URL/$NEXUS_REPO/$DOCKER_IMAGE:$IMAGE_TAG
+                        docker tag $DOCKER_IMAGE $NEXUS_HOST:$NEXUS_PORT/$DOCKER_IMAGE:$IMAGE_TAG
+                        docker login $NEXUS_HOST:$NEXUS_PORT -u admin -p admin123
+                        docker push $NEXUS_HOST:$NEXUS_PORT/$DOCKER_IMAGE:$IMAGE_TAG
                     """
                 }
             }
