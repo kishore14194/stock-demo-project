@@ -90,4 +90,11 @@ The CI/CD pipeline is designed with the following components:
 - Installed nexus, configured Jenkins multipipeline to build when a change is pushed to github
 - Configured Nexus Repo
 - Sometimes EC2 stops connecting - Why ?
-- 
+- Issue with accessing docker when I build jenkins
+### April 10, 2025
+- Spent time debugging Jenkins agent connection. The issue was due to configuring the wrong IP for the agent.
+- Added EC2's public IP as an insecure registry in the Docker daemon to allow image pushes to Nexus.
+- Confirmed that Nexus is accessible on port 8081 (UI) and 8083 (Docker HTTP connector).
+- Docker image was successfully built via Jenkins pipeline and tagged correctly.
+- Configured Jenkins to push Docker images to the Nexus hosted Docker registry.
+- Next step: Set up Kubernetes and deploy the Docker image pulled from Nexus.
