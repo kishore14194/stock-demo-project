@@ -29,7 +29,7 @@ pipeline {
                 script {
                     sh """
                         docker tag $DOCKER_IMAGE $NEXUS_URL/$NEXUS_REPO/$DOCKER_IMAGE:$IMAGE_TAG
-                        docker login $NEXUS_URL -u admin -p your-nexus-password
+                        docker login $NEXUS_URL -u admin -p admin123
                         docker push $NEXUS_URL/$NEXUS_REPO/$DOCKER_IMAGE:$IMAGE_TAG
                     """
                 }
