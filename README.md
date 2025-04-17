@@ -98,3 +98,18 @@ The CI/CD pipeline is designed with the following components:
 - Docker image was successfully built via Jenkins pipeline and tagged correctly.
 - Configured Jenkins to push Docker images to the Nexus hosted Docker registry.
 - Next step: Set up Kubernetes and deploy the Docker image pulled from Nexus.
+### April 11,15,16 2025
+- Kubernetics was driving me crazy.
+- Errors Faced
+  - When I ran the command "_kubectl get nodes_," I encountered a connection error to the port <private-ip>. Upon investigation, I discovered that several Kubernetes system containers were crashing, including etcd and api-server. The connection error occurred because the api-server was down. To debug the issue, I used the command _crictl ps -a_ to list all containerd pods and their status. I then examined the logs of specific containers using _crictl logs <container-id>_. Although this debugging approach didn't immediately reveal the solution, the system eventually started working after several restarts of the affected containers.
+  - I faced another issue where the worker-node status showed as "NotReady." Initially, I suspected this was because I hadn't installed a network plugin. However, further investigation revealed there was also a memory issue on the worker node.I resolved the problem by freeing up memory and increasing the memory allocation for the machines. This ultimately fixed the issue. The _kubectl describe node_ command was particularly helpful during the debugging process, as it provided detailed information about the node's status and conditions.
+  - I created deployment.yaml and server.yaml in which I gave the image name incorrectly at first then it turned out to be an issue where image is trying to pull from https but the image is avaliable in http
+- I am going to start everything from the scratch again and see how long does it take for me to complete since I am familiar with most of the steps.
+- Memorised the command as I kept writing it over and over again.
+
+## Point to Remember when starting out a CI/CD again:
+  - Be clear on how many machines to spin up.
+  - Use alias to connect to machines
+  - look for the correct-ip
+  - Analyse and Determine the system size beforehand.
+  - Automate as much as possible. 
