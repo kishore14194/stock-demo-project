@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'build-node' }
+    agent { label 'worker-node' }
 
     environment {
         DOCKER_IMAGE = "stock-backend"
