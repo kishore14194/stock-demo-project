@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "stock-backend"
-        NEXUS_HOST = "43.205.198.174"
+        NEXUS_HOST = "13.233.216.93"
         NEXUS_PORT = "8083" // Port for Docker repo, not Nexus UI
         NEXUS_REPO = "docker-hosted"
         IMAGE_TAG = "latest"
