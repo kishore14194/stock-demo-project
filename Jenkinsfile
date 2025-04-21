@@ -38,7 +38,10 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh "docker build -t $DOCKER_IMAGE:$IMAGE_TAG ."
+                    sh """
+                    echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
+                    docker build -t $DOCKER_IMAGE:$IMAGE_TAG .
+                    """
                 }
             }
         }
@@ -59,7 +62,6 @@ pipeline {
             steps {
                 script {
                     sh """
-                        echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                         docker tag $DOCKER_IMAGE:$IMAGE_TAG $DOCKERHUB_REPO:$IMAGE_TAG
                         docker push $DOCKERHUB_REPO:$IMAGE_TAG
                     """
