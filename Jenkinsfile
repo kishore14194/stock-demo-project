@@ -68,5 +68,11 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to k8s pod') {
+            agent { label 'k8s-deployer' }
+            steps {
+                sh 'kubectl rollout restart deployment stock-app'
+            }
+        }
     }
 }
